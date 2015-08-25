@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>崩溃信息</title>
+
+<!-- Bootstrap CSS -->
+<link
+	href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<!--此处添加你的div等-->
+
+	<div>
+
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#stack_info"
+				aria-controls="stack_info" role="tab" data-toggle="tab">堆栈信息</a></li>
+			<li role="presentation"><a href="#app_version"
+				aria-controls="app_version" role="tab" data-toggle="tab">应用版本</a></li>
+			<li role="presentation"><a href="#performance_info"
+				aria-controls="performance_info" role="tab" data-toggle="tab">性能信息</a></li>
+			<li role="presentation"><a href="#device_info"
+				aria-controls="device_info" role="tab" data-toggle="tab">终端设备</a></li>
+			<li role="presentation"><a href="#os_info"
+				aria-controls="os_info" role="tab" data-toggle="tab">操作系统</a></li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content" >
+			<div role="tabpanel" class="tab-pane fade in active" id="stack_info">...</div>
+			<div role="tabpanel" class="tab-pane fade" id="app_version">...</div>
+			<div role="tabpanel" class="tab-pane fade" style="height: 400px"
+				id="performance_info"></div>
+			<div role="tabpanel" class="tab-pane fade" id="device_info">...</div>
+			<div role="tabpanel" class="tab-pane fade" id="os_info">...</div>
+		</div>
+
+	</div>
+	<!-- jQuery -->
+	<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Bootstrap JavaScript -->
+	<script
+		src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$('#myTabs a').click(function(e) {
+			e.preventDefault()
+			$(this).tab('show')
+		})
+
+		// 使用
+		var myChart = echarts.init(document.getElementById('performance_info'));
+
+		var option = {
+			title : {
+				text : '当前应用CPU占用率对崩溃的影响',
+			},
+			tooltip : {
+				trigger : 'axis'
+			},
+			legend : {
+				data : [ '崩溃率(%)' ]
+			},
+			toolbox : {
+				show : true,
+				feature : {
+					mark : {
+						show : true
+					},
+					dataView : {
+						show : true,
+						readOnly : false
+					},
+					magicType : {
+						show : true,
+						type : [ 'line', 'bar' ]
+					},
+					restore : {
+						show : true
+					},
+					saveAsImage : {
+						show : true
+					}
+				}
+			},
+			calculable : true,
+			xAxis : [ {
+				type : 'category',
+				data : [ '0%-6.25%', '6.25%-12.5%', '12.5%-18.75%',
+						'18.75%-25%', '25%-31.25%', '31.25%-37.5%',
+						'37.5%-43.75%', '43.75%-50%', '50%-56.25%',
+						'56.25%-62.5%', '62.5%-68.75%', '68.75%-75%',
+						'75%-81.25%', '81.25%-87.5%', '87.5%-93.75%',
+						'93.75%-100%' ]
+			} ],
+			yAxis : [ {
+				type : 'value',
+				axisLabel : {
+					formatter : '{value} %'
+				}
+			} ],
+			series : [ {
+				name : '崩溃率(%)',
+				type : 'bar',
+				data : [ 1.5, 2.5, 1.7, 12, 20, 40, 5.3, 5.1, 2.5, 1.5, 2.7,
+						0.5, 0.3, 0.2, 0.2, 0.1 ],
+				markPoint : {
+					data : [ {
+						type : 'max',
+						name : '最大值'
+					}, {
+						type : 'min',
+						name : '最小值'
+					} ]
+				},
+				markLine : {
+					data : [ {
+						type : 'average',
+						name : '平均值'
+					} ]
+				}
+			} ]
+		};
+
+		// 为echarts对象加载数据
+		myChart.setOption(option);
+	</script>
+
+
+
+
+
+</body>
+</html>

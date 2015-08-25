@@ -1,0 +1,16 @@
+com\uc\bigdata\exercise\SamplingTask.class
+com\uc\bigdata\exercise\SamplingTask$SamplingReducer.class
+com\uc\bigdata\exercise\SamplingTask$SamplingMapper.class
+com\uc\bigdata\exercise\FeatureTask$FeatureReducer.class
+com\uc\bigdata\exercise\domain\NotPronDomains.class
+com\uc\bigdata\exercise\WordCount$TokenizerMapper.class
+com\uc\bigdata\exercise\WordCount$IntSumReducer.class
+com\uc\bigdata\exercise\WordCount.class
+com\uc\bigdata\exercise\SamplePartition.class
+com\uc\bigdata\exercise\FeatureTask$FeatureMapper.class
+com\uc\bigdata\exercise\domain\PronDomains3.class
+com\uc\bigdata\exercise\domain\PronDomains.class
+com\uc\bigdata\exercise\FeatureTask.class
+com\uc\bigdata\exercise\domain\PronDomains2.class
+com\uc\bigdata\exercise\domain\NotPronDomains2.class
+com\uc\bigdata\exercise\FeatureTask$FeatureCombiner.class
